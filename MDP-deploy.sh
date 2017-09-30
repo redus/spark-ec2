@@ -1,0 +1,1 @@
+./spark-ec2 -k UP-MDP -i UP-MDP.pem -t m4.2xlarge -a ami-ea87a78f -s 4 -r us-east-2 -z us-east-2a --ebs-vol-type=st1 --ebs-vol-size=2048 -u ec2-user --vpc-id=vpc-46c9fc2f --spark-version=2.1.0 --hadoop-major-version=yarn launch spark-cluster

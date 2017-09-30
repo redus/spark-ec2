@@ -1,0 +1,1 @@
+python spark_ec2.py -k UP-MDP -i UP-MDP.pem -t m4.large -r us-east-2 -z us-east-2a -a ami-ea87a78f -u ec2-user --spark-version=2.0.0 --hadoop-major-version=yarn --vpc-id=vpc-46c9fc2f --no-ganglia --subnet-id=subnet-b7e2e7de launch spark-cluster

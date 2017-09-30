@@ -520,6 +520,7 @@ def launch_cluster(conn, opts, cluster_name):
             user_data_content = user_data_file.read()
 
     print("Setting up security groups...")
+    print(opts.region)
     master_group = get_or_make_group(conn, cluster_name + "-master", opts.vpc_id)
     slave_group = get_or_make_group(conn, cluster_name + "-slaves", opts.vpc_id)
     authorized_address = opts.authorized_address
@@ -866,6 +867,8 @@ def setup_cluster(conn, master_nodes, slave_nodes, opts, deploy_ssh_key):
         host=master,
         opts=opts,
         command="rm -rf spark-ec2"
+        + " && "
+        + "sudo yum -y install git"
         + " && "
         + "git clone {r} -b {b} spark-ec2".format(r=opts.spark_ec2_git_repo,
                                                   b=opts.spark_ec2_git_branch)

@@ -36,6 +36,8 @@ identify machines belonging to each cluster in the Amazon EC2 Console.
     Amazon EC2 access key ID and secret access key. These can be
     obtained from the [AWS homepage](http://aws.amazon.com/) by clicking
     Account > Security Credentials > Access Credentials.
+-   (hack) get boto 2.48.0 from pypi and put it on lib/. Rename as boto-2.34.0.
+    This bypasses us-east-2 error bug.
 
 ## Launching a Cluster
 

@@ -68,7 +68,7 @@ echo "Running setup-slave on all cluster nodes to mount filesystems, etc..."
 setup_slave_start_time="$(date +'%s')"
 pssh --inline \
     --host "$MASTERS $SLAVES" \
-    --user root \
+    --user ec2-user \
     --extra-args "-t -t $SSH_OPTS" \
     --timeout 0 \
     "spark-ec2/setup-slave.sh"

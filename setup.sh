@@ -70,10 +70,9 @@ echo "Running setup-slave on all cluster nodes to mount filesystems, etc..."
 setup_slave_start_time="$(date +'%s')"
 for node in $SLAVES $OTHER_MASTERS; do
     ssh $node \
-    -i UP-MDP.pem \
-    --user ec2-user \
-    --extra-args "-t -t $SSH_OPTS" \
-    --timeout 60 \
+    -l ec2-user \
+    $SSH_OPTS \
+    -o ConnectTimeout 60 \
     "/home/ec2-user/spark-ec2/setup-slave.sh"
 done
 setup_slave_end_time="$(date +'%s')"

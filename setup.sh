@@ -73,7 +73,7 @@ for node in $SLAVES $OTHER_MASTERS; do
     -l ec2-user \
     $SSH_OPTS \
     -v -o ConnectTimeout=60 \
-    "/home/ec2-user/spark-ec2/setup-slave.sh"
+    "/home/ec2-user/spark-ec2/setup-slave.sh &"
 done
 setup_slave_end_time="$(date +'%s')"
 echo_time_diff "setup-slave" "$setup_slave_start_time" "$setup_slave_end_time"

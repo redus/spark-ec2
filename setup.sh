@@ -68,12 +68,14 @@ echo_time_diff "rsync /home/ec2-user/spark-ec2" "$rsync_start_time" "$rsync_end_
 
 echo "Running setup-slave on all cluster nodes to mount filesystems, etc..."
 setup_slave_start_time="$(date +'%s')"
-pssh --inline \
-    --host "$MASTERS $SLAVES" \
+for node in $SLAVES $OTHER_MASTERS; do
+    ssh $node \
+    -i UP-MDP.pem \
     --user ec2-user \
     --extra-args "-t -t $SSH_OPTS" \
     --timeout 60 \
     "/home/ec2-user/spark-ec2/setup-slave.sh"
+done
 setup_slave_end_time="$(date +'%s')"
 echo_time_diff "setup-slave" "$setup_slave_start_time" "$setup_slave_end_time"
 

@@ -1,0 +1,1 @@
+./spark-ec2 -r us-east-1 -z us-east-1a destroy spark-cluster

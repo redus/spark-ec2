@@ -72,7 +72,7 @@ pssh --inline \
     --host "$MASTERS $SLAVES" \
     --user ec2-user \
     --extra-args "-t -t $SSH_OPTS" \
-    --timeout 0 \
+    --timeout 60 \
     "spark-ec2/setup-slave.sh"
 setup_slave_end_time="$(date +'%s')"
 echo_time_diff "setup-slave" "$setup_slave_start_time" "$setup_slave_end_time"

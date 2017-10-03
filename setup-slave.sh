@@ -97,6 +97,7 @@ setup_ebs_volume /dev/xdvb /data
 # setup_ebs_volume /dev/sdx /vol5
 # setup_ebs_volume /dev/sdy /vol6
 # setup_ebs_volume /dev/sdz /vol7
+echo "ebs setup complete"
 
 # Alias vol to vol3 for backward compatibility: the old spark-ec2 script supports only attaching
 # one EBS volume at /dev/sdv.
